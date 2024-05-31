@@ -29,22 +29,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// void main() {
-//   runApp(const MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeClass.lightTheme, // applies this theme if the device theme is light mode
-//       darkTheme: ThemeClass.darkTheme,
-//       home: const PaymentScreen(),
-//     );
-//   }
-// }
-

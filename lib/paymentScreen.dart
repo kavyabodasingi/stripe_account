@@ -233,7 +233,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
   final _cvvController = TextEditingController();
   final _cardHolderNameController = TextEditingController();
   Map<String, dynamic>? paymentIntent;
-
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   void initState() {
     super.initState();
@@ -275,7 +275,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   try{
       await Stripe.instance.presentPaymentSheet().then((value)=>{
-        // Success State 
+        // Success State
         _showSuccessMessage(),
       });
   }catch(error){
@@ -336,6 +336,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Payment successful!')),
     );
+    
   }
 
   void _showErrorMessage(String message) {
@@ -346,37 +347,131 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final Color containerColor = Theme.of(context).colorScheme.surface;
     return Scaffold(
       appBar: AppBar(title: Text('Payment')),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _cardNumberController,
-              decoration: InputDecoration(labelText: 'Card Number'),
-              keyboardType: TextInputType.number,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Form(
+            key: _formKey,
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 216, 233, 247),
+                    Color.fromARGB(255, 243, 189, 185),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(7.0)),
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      screenWidth * 0.1,
+                      screenWidth * 0.3,
+                      screenWidth * 0.1,
+                      0,
+                    ),
+                    child: TextField(
+                      controller: _cardHolderNameController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: 'Card Holder Name',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(9.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      screenWidth * 0.1,
+                      screenWidth * 0.05,
+                      screenWidth * 0.1,
+                      0,
+                    ),
+                    child: TextField(
+                      controller: _cardNumberController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        labelText: 'Card Number',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(9.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      screenWidth * 0.1,
+                      screenWidth * 0.05,
+                      screenWidth * 0.1,
+                      0,
+                    ),
+                    child: TextField(
+                      controller: _expiryDateController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        labelText: 'Expiry Date (MM/YY)',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(9.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      screenWidth * 0.1,
+                      screenWidth * 0.05,
+                      screenWidth * 0.1,
+                      0,
+                    ),
+                    child: TextField(
+                      controller: _cvvController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        labelText: 'CVV',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(9.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      screenWidth * 0.1,
+                      screenWidth * 0.05,
+                      screenWidth * 0.1,
+                      screenWidth * 0.5,
+                    ),
+                    child: ElevatedButton(
+                      onPressed: (){
+                        if (_formKey.currentState?.validate() ?? true){
+                          return "Required";
+                        }
+                        else{
+                          return payment;
+                        }
+                                        
+                          },
+                      child: Text(
+                        "Pay Now",
+                        style: TextStyle(color: containerColor),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            TextField(
-              controller: _expiryDateController,
-              decoration: InputDecoration(labelText: 'Expiry Date (MM/YY)'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _cvvController,
-              decoration: InputDecoration(labelText: 'CVV'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _cardHolderNameController,
-              decoration: InputDecoration(labelText: 'Cardholder Name'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: payment,
-              child: Text('Pay Now'),
-            ),
-          ],
+          ),
         ),
       ),
     );
