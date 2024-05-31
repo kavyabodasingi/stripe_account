@@ -1,0 +1,48 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "stripeaccount-11a65",
+          "appId": "1:849402729771:android:cfb3b7af04bec7c04ba16e",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "stripeaccount-11a65",
+          "configurations": {
+            "android": "1:849402729771:android:cfb3b7af04bec7c04ba16e",
+            "ios": "1:849402729771:ios:8659e258e2c6fd6a4ba16e",
+            "macos": "1:849402729771:ios:8659e258e2c6fd6a4ba16e",
+            "web": "1:849402729771:web:ff11fa6ac67331164ba16e",
+            "windows": "1:849402729771:web:0587fe2daed0ef634ba16e"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ]
+    },
+    {
+      "source": "stripe_account",
+      "codebase": "payment",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ]
+}

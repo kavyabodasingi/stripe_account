@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "849402729771",
+    "project_id": "stripeaccount-11a65",
+    "storage_bucket": "stripeaccount-11a65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849402729771:android:9d312c54ebac3b934ba16e",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn4yJdnKHhCwC6HYiokgy2jCffk_LEDho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849402729771:android:cfb3b7af04bec7c04ba16e",
+        "android_client_info": {
+          "package_name": "com.example.stripe_account"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn4yJdnKHhCwC6HYiokgy2jCffk_LEDho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849402729771:android:c0be2283e532fbd04ba16e",
+        "android_client_info": {
+          "package_name": "com.example.telegram"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn4yJdnKHhCwC6HYiokgy2jCffk_LEDho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
