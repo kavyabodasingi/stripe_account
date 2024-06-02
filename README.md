@@ -16,7 +16,7 @@ Set Up a Simulator:
 
 Open Xcode, go to Xcode > Open Developer Tool > Simulator and choose a device to start the simulator.
 
-Step 2: Download this new_branch1 from this repository and open with the vscode or androis studio.
+Step 2: Download from this repository and open with the vscode or androis studio.
 
 Step 3: Before running the project make sure you download the dependencies i have addded by a command.
 
