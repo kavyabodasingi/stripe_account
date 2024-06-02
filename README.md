@@ -22,7 +22,7 @@ Step 3: Before running the project make sure you download the dependencies i hav
 
 use:
 
-flutter pub get
+  flutter pub get
 
 Step 4: Run the Flutter Project
 
@@ -36,7 +36,7 @@ To run on a specific device,
 
 use:
 
-flutter run -d <device_id>
+  flutter run -d <device_id>
 
 Replace <device_id> with the ID of your connected device or emulator.
 
