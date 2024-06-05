@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "stripe_app",
     "short_name": "stripe_app",
+=======
+    "name": "stripe_account",
+    "short_name": "stripe_account",
+>>>>>>> origin/master
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
