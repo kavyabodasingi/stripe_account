@@ -7,11 +7,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-<<<<<<< HEAD
 import 'package:stripe_app/main.dart';
-=======
-import 'package:stripe_account/main.dart';
->>>>>>> origin/master
+
+
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
